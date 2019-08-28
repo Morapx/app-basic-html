@@ -15,6 +15,21 @@ audio.onpause();
 audio.currentTime = 0;
 audio.play();
 
+buttons.forEach(
+    button =>
+    button.addEventListener('click', playnote));
+ 
+
+    const keyNoteDown = event => {
+        console.log(event);
+        const key = event.key;
+        console.log(key);
+        const button = document.querySelector(`butto[data-key="${key}"]`);
+        if(button) button.click();
+    }
+
+    document.addEventListener('keydown', keyNoteDown);
+
 }
 
 buttons.forEach(
